@@ -2,7 +2,6 @@ set nocompatible "enable modern vim features not compatible in vi
 
 " VUNDLE PLUGINS "
 
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -81,7 +80,8 @@ Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 
 " for autocompletion
-Plugin 'valloric/youcompleteme'
+" Plugin 'valloric/youcompleteme'
+Plugin 'Valloric/YouCompleteMe'
 
 " for being able to use a shell in vim :VimShellCurrentDir
 " Need to run VimProcInstall first
@@ -116,8 +116,17 @@ Plugin 'honza/vim-snippets'
 " For python consistency indentation
 Plugin 'IndentConsistencyCop'
 
-"TODO: add plugins for:
-"tmux integration (panes and registers)
+" For GNU screen integration
+Plugin 'jpalardy/vim-slime'
+let g:slime_target = "screen"
+let g:slime_paste_file = "$HOME/.vim/bundle/vim-slime/metadata/.slime_paste"
+
+" For development in MIT-Scheme (Lisp)
+" Auto-indent for lisp and clojure
+Plugin 'bhurlow/vim-parinfer'
+" Parentheses highlighting
+Plugin 'junegunn/rainbow_parentheses.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -150,7 +159,7 @@ syntax enable
 " set line where cursor is. Useful if you lose the cursor.
 set cursorline
 " set a color column at 80 characters cause long lines are ugly in code.
-set colorcolumn=80
+set colorcolumn=100
 " auto complete graphical menu for commands.
 set wildmenu
 " doesn't redraw screen in middle of macros (leads to faster macros).
@@ -179,6 +188,12 @@ set hlsearch
 " other defaults
 " Allows you to open another buffer without saving current one
 set hidden
+
+" Enable mouse input"
+set mouse=a
+
+" Fix broken backspace key"
+set backspace=indent,eol,start
 
 " REMAPS ------------------------------------------------------------------ "
 
